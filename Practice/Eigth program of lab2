@@ -1,0 +1,24 @@
+package com.cg.pak3.bean;
+import java.util.Scanner;
+public class SortedStrings {
+          public static void main(String args[])
+          {Scanner o=new Scanner(System.in);
+          String a[]=new String[] {"kaushal","garg"};
+          int i;
+          /*for(i=0;i<3;i++)
+          {a[i]=o.nextLine();}*/
+          int j;
+          for(i=0;i<a.length-1;i++)
+          {for(j=0;j<a.length-i-1;j++)
+          {if((a[j].compareTo(a[j+1])>0))
+        		  {String s=a[j];
+        		  a[j]=a[j+1];
+        		  a[j+1]=s;
+        		  }
+        		  }
+          for(i=0;i<a.length;i++)
+        	  System.out.println(a[i]+" ");
+          }
+          }
+          }
+
