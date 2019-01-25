@@ -1,0 +1,21 @@
+package com.capgemini.pak6.bean;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+public class Purcahse {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        System.out.println("Enter the purchase date in dd/mm/yy format" );
+        Scanner o=new Scanner(System.in);
+        String input=o.nextLine();
+        DateTimeFormatter format=DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate l=LocalDate.parse(input,format);
+        System.out.println("enter the years of warantee period");
+       int n=o.nextInt();
+       System.out.println("enter the months of warantee period");
+       int n1=o.nextInt();
+        System.out.println("Date is:"+l.plusYears(n1).plusMonths(n));
+	}
+
+}
