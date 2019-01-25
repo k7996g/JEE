@@ -1,0 +1,15 @@
+package com.capgemini.pak5.bean;
+import java.time.*;
+import java.time.LocalDate;
+
+public class LocalDatesPeriod {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+         LocalDate l=LocalDate.of(2020, 12, 01);
+         LocalDate l1=LocalDate.of(2025, 12, 01);
+         Period p=l1.until(l);
+         System.out.println(p);
+	}
+
+}
