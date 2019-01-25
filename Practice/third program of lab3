@@ -1,0 +1,15 @@
+package com.capgemini.pak4.bean;
+import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+public class FindPeriod {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+          LocalDate l=LocalDate.now();
+          LocalDate l1=LocalDate.of(2019,01,26);
+          Period p=l1.until(l);
+          System.out.println(p);
+	}
+
+}
