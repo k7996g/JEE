@@ -1,0 +1,14 @@
+import java.util.regex.*;
+import java.util.Scanner;
+import java.lang.*;
+class Main
+{ public static void main(String args[])
+{Scanner o=new Scanner(System.in);
+System.out.println("Enter the String");
+String s=o.nextLine();
+if(Pattern.matches("(.){8,}_job",s))
+System.out.println("true");
+else
+System.out.println("false");
+}
+}
