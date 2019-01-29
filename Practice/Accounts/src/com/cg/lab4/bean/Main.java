@@ -13,7 +13,7 @@ public class Main {
          Account a=new Account(x,2000,p1);
          int y=rand.nextInt(10000)+1;
          if(x==y)
-         {while(x!=y)
+         {while(x==y)
          { y=rand.nextInt(10000)+1;}
 	}
         	 Account a1=new Account(y,3000,p2);
