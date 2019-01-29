@@ -6,7 +6,7 @@ public class SavingAccount extends Account {
     {if(balance<MINBALANCE)
     	return false;
     else
-    	{this.balance-=balance;
+    	{super.balance-=balance;
         System.out.println("After Withdraw: "+this.balance);
         return true;}
     }
