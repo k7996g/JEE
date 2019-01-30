@@ -1,0 +1,86 @@
+package com.cg.lab7.bean;
+import java.util.*;
+import java.util.Scanner;
+public class StringOp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+          StringOp s=new StringOp();
+          Scanner sc=new Scanner(System.in);
+          System.out.println("Enter first String");
+          String s1=sc.next();
+          System.out.println("Enter Second String");
+          String s2=sc.next();
+          s.operation(s1, s2);
+	}
+public void operation(String s1,String s2)
+{ ArrayList<String> a=new ArrayList<String>();
+  a.add(s1);
+  a.add(s2);
+  int i;
+  int choice;
+  Scanner sc=new Scanner(System.in);
+  System.out.println("Enter the choice");
+  choice=sc.nextInt();
+  String s="";
+  if(choice==1)
+  {
+  for(i=0;i<s2.length();i++)
+  {  if(i%2==0)
+  { s=s1.replace(s1.charAt(i),s2.charAt(i));
+  }
+}
+  }
+  a.add(s);
+   if(choice==2)
+  {    int x=s1.indexOf(s2);
+	   int j=s1.lastIndexOf(s2);
+	   if(j!=x)
+	   {
+  StringBuilder s3=new StringBuilder(s2);
+  s3.reverse();
+  String s4=new String(s3); 
+  StringBuilder s5=new StringBuilder(s1);
+  s5.replace(j, j+s2.length(), s4);
+  s4=new String(s5);a.add(s4);}
+  else
+  {System.out.println(s1+s2);
+  
+  }
+  }
+   if(choice==3)
+   {int x=s1.lastIndexOf(s2);
+   int j=s1.indexOf(s2);
+   if(j!=x)
+   {StringBuilder s3=new StringBuilder(s1);
+   s3.replace(j, j+s2.length(),"");
+   String s4=new String(s3);
+   a.add(s4);
+   }
+   else
+	   System.out.println(s1);
+   }
+   if(choice==4)
+   {int j=s2.length();
+   StringBuilder s3=new StringBuilder(s1);
+   
+   if(j%2==0)
+   {for(int x=0;x<j/2;x++)
+	   s3.insert(x,s2.charAt(x));
+   
+   for(int x=j/2;x<j;x++)
+   s3.append(s2.charAt(x));
+   
+   
+   String s4=new String(s3);a.add(s4);}
+   else
+   {for(int x=0;x<j/2+1;x++)
+	   s3.insert(x,s2.charAt(x));
+   for(int x=j/2+1;x<j;x++)
+	   s3.append(s2.charAt(x));
+   String s4=new String(s3);a.add(s4);
+   }
+   }
+System.out.println(a);
+}
+}
