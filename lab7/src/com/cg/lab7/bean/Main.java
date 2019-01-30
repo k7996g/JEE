@@ -5,7 +5,8 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
           Scanner sc=new Scanner(System.in);
-          int a[]=new int[3];
+          int a[]=new int[4];
+          int d[]=new int[4];
           SortAndReverse s1=new SortAndReverse();
           System.out.println("Enter the no of the elements of the array");
           int n=sc.nextInt();
@@ -15,7 +16,9 @@ public class Main {
           {a[i]=sc.nextInt();
           
           }
-          s1.getSorted(a);
+         d=(int[]) s1.getSorted(a);
+          for(int j:d)
+        	  System.out.println(j);
 	}
 
 }
