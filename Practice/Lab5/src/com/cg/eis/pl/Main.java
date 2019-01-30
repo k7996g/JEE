@@ -14,6 +14,7 @@ public class Main {
           int salary=sc.nextInt();*/
           /*System.out.println("enter the designation for insurance scheme");
           String designation=sc.next();*/
+		s.insuranceScheme(e.getSalary(),e.getDesignation(),e);
           System.out.println("Salary is: "+e.getSalary());
           System.out.println("Employee name is: "+e.getEname());
           System.out.println("Employee id is: "+e.getEmpid());
