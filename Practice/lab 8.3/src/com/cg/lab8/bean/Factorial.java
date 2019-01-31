@@ -7,9 +7,9 @@ public class Factorial extends Thread{
       static int x;
       public void run()
       {if(c!=1)
-      {/*Random rand=new Random();
-       x=rand.nextInt(10000)+1;c++;*/c++;
-       x=4;
+      {Random rand=new Random();
+       x=rand.nextInt(10000)+1;c++;
+       
       }
       else
       {for(int i=1;i<=x;i++)
