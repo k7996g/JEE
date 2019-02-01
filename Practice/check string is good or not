@@ -1,0 +1,43 @@
+package com.cg.string.bean;
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        int l=s.length();
+        int j=0;
+       int n[]=new int[10];
+        String s1="abcdefghijklmnopqrstuvwxyz";
+        //StringBuilder s2=new StringBuilder(s);
+        String s2="?";
+        int x=0;
+        ArrayList<Character> a=new ArrayList<Character>();
+        for(int i=0;i<s.length();i++)
+        	a.add(s.charAt(i));
+        for(int i=0;i<s.length();i++)
+        	{String s3=Character.toString(s.charAt(i));
+        	if(s3.equals(s2))
+        	n[j++]=i;}
+        for(int i=0;i<s1.length();i++)
+        	if(a.contains(s1.charAt(i))!=true)
+        		x++;
+        j=0;
+        if(l<26||x!=n.length)
+        	System.out.println("not possible");
+        else
+        {
+        for(int i=0;i<s1.length();i++)
+        {if(a.contains(s1.charAt(i)))
+        {continue;}
+        else
+        {
+        a.set(n[j++], s1.charAt(i));
+        }
+        }
+        System.out.println(a);
+        }
+	}
+
+}
