@@ -9,7 +9,7 @@ public class AccSch {
 			int hra, int it) {
 		Account a1 = new Account(empno, empname, joindate, descode, dep, basic, hra, it);
 		a.add(a1);
-		return "Account for employee created successfully";
+		return "Account for employee "+empname+" created successfully";
 	}
 
 	public void setDaAndDesignation(char descode) {
