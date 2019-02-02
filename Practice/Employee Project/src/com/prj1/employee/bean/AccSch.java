@@ -54,16 +54,18 @@ public class AccSch {
 	}
 
 	public void showDetails(int empno) {
-		int n = a.size();
+		int n = a.size();int f=0;
 		for (int i = 0; i < n; i++) {
 			if (a.get(i).getEmpno() == empno) {
 				System.out.print(a.get(i).getEmpno()+" ");
 				System.out.print(a.get(i).getEmpname()+" ");
 				System.out.print(a.get(i).getDep()+" ");
 				System.out.print(a.get(i).getDes()+" ");
-				System.out.print(salary(empno)+" ");
+				System.out.println(salary(empno)+" ");
+				f=1;
 			}
 		}
+		if(f==0)
+			System.out.println("There is no employee with employee id :"+empno);
 	}
-
 }
