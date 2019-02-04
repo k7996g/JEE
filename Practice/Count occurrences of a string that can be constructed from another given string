@@ -1,0 +1,25 @@
+package com.cg.string.bean;
+import java.util.*;
+public class Occurence {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+     Scanner scanner=new Scanner(System.in);
+     System.out.println("Enter the parent string");
+     String parent=scanner.nextLine();
+     System.out.println("Enter the child string");
+     String child=scanner.nextLine();
+     int c=0;
+     int j=-1;
+     StringBuilder s=new StringBuilder(parent);
+     for(int i=0;i<parent.length();i++)
+     {j=s.indexOf(child);
+     if(j>=0)
+    	 {c++;
+    	 s.setCharAt(j,'*');
+    	 }
+     }
+     System.out.println(c);
+	}
+
+}
