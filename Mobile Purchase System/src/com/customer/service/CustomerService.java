@@ -22,20 +22,20 @@ public class CustomerService {
 			if (Pattern.matches("[A-Z]{1}[a-z]{1,19}", name))
 				customer.setCusName(name);
 			else
-				System.out.println("Name is in proper format");
+				{System.out.println("Name is not in proper format");break;}
 			System.out.println("Customer Mail id: ");
 			String mailId = scanner.next();
 			if (Pattern.matches("[a-zA-Z]{1,}[.][a-zA-Z]{1,}[@]gmail.com", mailId)) {
 				customer.setCusMailId(mailId);
 
 			} else
-				System.out.println("Sir your mail id is wrong");
+				{System.out.println("Sir your mail id is wrong");break;}
 			System.out.println("Customer PhoneNo: ");
 			String no = scanner.next();
 			if (Pattern.matches("[0-9]{10}", no))
 				customer.setCusPhoneNo(no);
 			else
-				System.out.println("Sir your phone no is wrong");
+				{System.out.println("Sir your phone no is wrong");break;}
 			Random rand = new Random();
 			customer.setPurchaseId(rand.nextInt(1000) + 1);
 			customer.setPurchaseDate(LocalDateTime.now());
@@ -45,18 +45,25 @@ public class CustomerService {
 			for (int i = 0; i < a1.size(); i++) {
 				if (a1.get(i).getMobName().equals(mobname))
 					customer.setCusMobileId(a1.get(i).getMobId());
-				else if (a1.get(i).getMobName().equals(mobname))
-					customer.setCusMobileId(a1.get(i).getMobId());
-				else if (a1.get(i).getMobName().equals(mobname))
-					customer.setCusMobileId(a1.get(i).getMobId());
-				else if (a1.get(i).getMobName().equals(mobname))
-					customer.setCusMobileId(a1.get(i).getMobId());
-				else if (a1.get(i).getMobName().equals(mobname))
-					customer.setCusMobileId(a1.get(i).getMobId());
+
 				else
 					System.out.println("There is no such mobile with this mobile name");
 			}
 			c = false;
+		}
+		cusDetails.add(customer);
+	}
+
+	public void purchase(String mobname) {
+		LinkedList<MobileDetails> a1 = new MobileService().getMobileList();
+		for (int i = 0; i < a1.size(); i++) {
+			if (a1.get(i).getMobName().equals(mobname)) {
+				if (a1.get(i).getStock() > 0) {
+					System.out.println("Stock is available");
+					a1.get(i).setStock(a1.get(i).getStock() - 1);
+				} else
+					System.out.println("Stock is not available");
+			}
 		}
 	}
 }
