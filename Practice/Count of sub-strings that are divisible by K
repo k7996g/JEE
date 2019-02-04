@@ -1,0 +1,27 @@
+package com.cg.string.bean;
+
+import java.util.*;
+
+public class DivisibleByK {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter the numeric string");
+		String string = scanner.nextLine();
+		System.out.println("Enter the divisible variable k");
+		int k = scanner.nextInt();
+		int c = 0;
+		for (int i = 0; i < string.length() - 1; i++) {
+			for (int j = i + 1; j < string.length(); j++) {
+				String s = string.substring(i, j);
+				if (Integer.parseInt(s) % k == 0) {
+					c++;System.out.print(s+" ");
+				}
+			}
+		}
+		System.out.println();
+		System.out.println("Total count is: "+c);
+	}
+
+}
