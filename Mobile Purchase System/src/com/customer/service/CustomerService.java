@@ -13,6 +13,7 @@ public class CustomerService {
 	LinkedList<CustomerDetails> cusDetails = new LinkedList<CustomerDetails>();
 	String mobname = "";
 	int x = 0;
+	int y = 0;
 
 	public void purchase(String mobname) {
 		LinkedList<MobileDetails> a1 = new MobileService().getMobileList();
@@ -20,12 +21,14 @@ public class CustomerService {
 		Scanner scanner = new Scanner(System.in);
 		for (int i = 0; i < a1.size(); i++) {
 			if (a1.get(i).getMobName().equals(mobname)) {
+				y = 1;
 				if (a1.get(i).getStock() > 0) {
 					System.out.println("Stock is available");
 					x = 1;
 					System.out.println("Do you want to purchase it if yes then enter 1 and if no then enter 0");
 					int choice = scanner.nextInt();
 					if (choice == 1) {
+						System.out.println("Please give your details");
 						if (x == 1)
 							addCustDetails(mobname);
 					} else {
@@ -37,15 +40,15 @@ public class CustomerService {
 					System.out.println("Stock is not available");
 					f = 1;
 				}
-				if (f == 1) {
-					System.out.println("These are all the mobiles which we have so please give name from this");
-					new MobileService().MobilesAvailableWithPriceAndName();
-					System.out.println("Enter the mobile from the list whivh you want to purchase");
-
-					String s = scanner.next();
-					purchase(s);
-				}
 			}
+		}
+		if (f == 1 || y == 0) {
+			System.out.println("These are all the mobiles which we have so please give name from this");
+			new MobileService().MobilesAvailableWithPriceAndName();
+			System.out.println("Enter the mobile from the list whivh you want to purchase");
+
+			String s = scanner.next();
+			purchase(s);
 		}
 
 	}
@@ -67,7 +70,7 @@ public class CustomerService {
 			}
 			System.out.println("Customer Mail id: ");
 			String mailId = scanner.next();
-			if (Pattern.matches("[a-zA-Z]{1,}[.][a-zA-Z]{1,}[@]gmail.com", mailId)) {
+			if (Pattern.matches("[a-zA-Z0-9]{1,}[.]{0,}[a-zA-Z0-9]{1,}[@]gmail.com", mailId)) {
 				customer.setCusMailId(mailId);
 				f1 = 1;
 
