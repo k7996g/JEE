@@ -55,7 +55,7 @@ public class MobileService {
 
 	public void MobilesAvailableWithPriceAndName() {
 		for (MobileDetails m : mobDetails)
-			System.out.println(m);
+			System.out.println("Mob name is: "+m.getMobName()+"Mob price is: "+m.getMobPrice()+"Mob stock is: "+m.getStock());
 	}
 
 	public LinkedList<MobileDetails> getMobileList() {
