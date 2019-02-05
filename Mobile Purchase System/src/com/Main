@@ -1,0 +1,18 @@
+package com.main;
+import com.customer.service.*;
+import com.CustomerDetails.bean.*;
+import com.mobile.service.*;
+import com.mobileDetails.bean.*;
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+     MobileService mobileservice=new MobileService();
+     
+     CustomerService customerservice=new CustomerService();
+     customerservice.purchase("Samsung");
+     mobileservice.showMobileByRange(10000,35000);
+	}
+
+}
