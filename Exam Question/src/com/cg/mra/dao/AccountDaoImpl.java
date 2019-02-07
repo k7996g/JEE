@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.cg.mra.bean.Account;
+import com.cg.mra.exception.PhoneNumberNotFoundException;
 
 public class AccountDaoImpl implements AccountDao {
 	Map<String, Account> accountEntry = new HashMap<>();
@@ -17,20 +18,21 @@ public class AccountDaoImpl implements AccountDao {
 	}
 
 	@Override
-	public Account getAccountDetails(String mobileNo) {
-
+	public Account getAccountDetails(String mobileNo) throws PhoneNumberNotFoundException {
+		int f = 0;
 		for (Map.Entry m : accountEntry.entrySet()) {
 			if (m.getKey().equals(mobileNo)) {
 
 				return (Account) m.getValue();
 			}
 		}
-
+		if (f == 0)
+			throw new PhoneNumberNotFoundException();
 		return null;
 	}
 
 	@Override
-	public double rechargeAccount(String mobileNo, double rechargeAmount) {
+	public double rechargeAccount(String mobileNo, double rechargeAmount) throws PhoneNumberNotFoundException {
 		int f = 0;
 		for (Map.Entry m : accountEntry.entrySet()) {
 			if (m.getKey().equals(mobileNo)) {
