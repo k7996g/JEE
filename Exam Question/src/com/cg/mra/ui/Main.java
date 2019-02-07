@@ -1,7 +1,9 @@
 package com.cg.mra.ui;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
+import com.cg.mra.exception.PhoneNumberNotFoundException;
 import com.cg.mra.service.AccountService;
 import com.cg.mra.service.AccountServiceImpl;
 
@@ -32,18 +34,45 @@ public class Main {
 
 	public static void accountBalanceEnquiry() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter your mobile no");
-		String mobileNo = scanner.next();
-		AccountService accountService = new AccountServiceImpl(mobileNo);
+
+		String mobileNo;
+		while (true) {
+			System.out.println("Enter your mobile no");
+			mobileNo = scanner.next();
+			if (Pattern.matches("[0-9]{10}", mobileNo))
+				break;
+			else
+				System.out.println("Your mobile no is wrong, please give another one!");
+		}
+		try {
+			AccountService accountService = new AccountServiceImpl(mobileNo);
+		} catch (PhoneNumberNotFoundException e) {
+			System.out.println("There is no customer with this phone no");
+		}
 	}
 
 	public static void rechargeMobile() {
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter your mobile no");
-		String mobileNo = scanner.next();
+		String mobileNo;
+
+		while (true) {
+			System.out.println("Enter your mobile no");
+			mobileNo = scanner.next();
+			if (Pattern.matches("[0-9]{10}", mobileNo))
+				break;
+			else
+				System.out.println("Your mobile no is wrong, please give another one!");
+		}
 		System.out.println("Enter the amount");
 		double amount = scanner.nextDouble();
-		AccountService accountService = new AccountServiceImpl(mobileNo);
-		accountService.rechargeAccount(mobileNo, amount);
+		try {
+			AccountService accountService = new AccountServiceImpl(mobileNo);
+
+			accountService.rechargeAccount(mobileNo, amount);
+		} catch (PhoneNumberNotFoundException e) {
+			System.out.println("There is no customer with this phone no");
+
+		}
+
 	}
 }
