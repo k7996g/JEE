@@ -1,0 +1,61 @@
+import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+import com.cg.mra.bean.Account;
+import com.cg.mra.dao.AccountDao;
+import com.cg.mra.dao.AccountDaoImpl;
+import com.cg.mra.exception.PhoneNumberNotFoundException;
+
+class AccountTest {
+
+	@Test
+	void testGetAccountDetails() {
+		Account account = new Account("Prepaid", "kaushal", 1000);
+		AccountDao a = new AccountDaoImpl();
+		try {
+			assertEquals(account, a.getAccountDetails("7895764776"));
+		} catch (PhoneNumberNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	void test2GetAccountDetails() {
+		Account account = new Account("Prepaid", "kaushal", 1000);
+		AccountDao a = new AccountDaoImpl();
+		try {
+			assertEquals(account, a.getAccountDetails("789576477"));
+		} catch (PhoneNumberNotFoundException e) {
+// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	void test3GetAccountDetails() {
+		Account account = new Account("Prepaid", "kaushal", 1000);
+		AccountDao a = new AccountDaoImpl();
+		try {
+			assertNull("value", a.getAccountDetails("789576477"));
+		} catch (PhoneNumberNotFoundException e) {
+// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	@Test
+	void testRechargeAccount() {
+		Account account = new Account("Prepaid", "kaushal", 1000);
+		AccountDao a = new AccountDaoImpl();
+		try {
+			assertEquals(2000, a.rechargeAccount("7895764776", 1000));
+		} catch (PhoneNumberNotFoundException e) {
+// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
