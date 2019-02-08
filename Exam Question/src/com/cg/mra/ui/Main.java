@@ -15,7 +15,8 @@ public class Main {
 	}
 
 	public static void showMenu() {
-		System.out.println("Enter 1 for Account Balance Enquiry");
+		while(true)
+		{System.out.println("Enter 1 for Account Balance Enquiry");
 		System.out.println("Enter 2 for recharge");
 		System.out.println("Enter 3 for exit");
 		Scanner scanner = new Scanner(System.in);
@@ -29,6 +30,9 @@ public class Main {
 			break;
 		case 3:
 			System.exit(0);
+			break;
+		default:System.out.println("Wrong Choice");		
+		}
 		}
 	}
 
