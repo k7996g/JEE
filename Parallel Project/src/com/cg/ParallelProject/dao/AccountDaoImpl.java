@@ -60,6 +60,7 @@ Create c=new Create();
 	public void FundTransfer(int accNo1, int accNo2, int amount) throws InsufficientBalanceAfterWithdrawException {
 		withDraw(accNo1, amount);
 		deposit(accNo2, amount);
+		System.out.println("Your balance is "+showBalance(accNo1));
 	}
 
 	/*
